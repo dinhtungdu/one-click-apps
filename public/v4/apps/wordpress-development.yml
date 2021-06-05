@@ -35,7 +35,7 @@ caproverOneClickApp:
           validRegex: /^(\w|[^\s"'\\])+$/
         - id: $$cap_db_type
           label: Database Type
-          defaultValue: mariadb 
+          defaultValue: mariadb
           description: You can either choose mariadb or mysql, you need to change the version according to which DB is selected. It is case sensitive.
           validRegex: /^(mysql|mariadb)$/
         - id: $$cap_database_version
@@ -53,6 +53,6 @@ caproverOneClickApp:
 
             IMPORTANT: It will take up to 2 minutes for WordPress to be ready. Before that, you might see a 502 error page.
     displayName: WordPress Development
-    isOfficial: false 
+    isOfficial: false
     description: WordPress is a content management system based on PHP and MySQL that is usually used with the MySQL or MariaDB database
     documentation: Taken from https://docs.docker.com/compose/wordpress/. Port mapping removed from WP as it is no longer needed
