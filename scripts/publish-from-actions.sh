@@ -43,7 +43,7 @@ echo "#############################################"
 echo "######### Setting env vars" 
 echo "#############################################" 
 
-REMOTE_REPO="https://${GITHUB_PERSONAL_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+REMOTE_REPO="https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 REPONAME="$(echo $GITHUB_REPOSITORY| cut -d'/' -f 2)"
 
 OWNER="$(echo $GITHUB_REPOSITORY| cut -d'/' -f 1)" 
@@ -81,6 +81,7 @@ ls -la
 echo "#############################################" 
 echo "######### Commit and push ###" 
 echo "#############################################" 
+echo $GITHUB_ACTOR
 sleep 1s
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
