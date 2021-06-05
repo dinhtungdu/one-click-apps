@@ -15,7 +15,7 @@ services:
     $$cap_appname-wordpress:
         depends_on:
             - $$cap_appname-db
-        image: wordpress:$$cap_wp_version
+        image: dinhtungdu/wordpress-docker-development:latest
         volumes:
             - $$cap_appname-wp-data:/var/www/html
         restart: always
@@ -33,19 +33,14 @@ caproverOneClickApp:
           label: Database password
           description: ''
           validRegex: /^(\w|[^\s"'\\])+$/
-        - id: $$cap_wp_version
-          label: WordPress Version
-          defaultValue: '4.9'
-          description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/wordpress/tags/
-          validRegex: /^([^\s^\/])+$/
         - id: $$cap_db_type
           label: Database Type
-          defaultValue: mysql
+          defaultValue: mariadb 
           description: You can either choose mariadb or mysql, you need to change the version according to which DB is selected. It is case sensitive.
           validRegex: /^(mysql|mariadb)$/
         - id: $$cap_database_version
           label: Database Version, default is MySQL
-          defaultValue: '5.7'
+          defaultValue: '10.6'
           description: Check out the Docker pages for the valid tags https://hub.docker.com/r/library/mysql/tags/ or https://hub.docker.com/_/mariadb?tab=tags
           validRegex: /^([^\s^\/])+$/
     instructions:
@@ -57,7 +52,7 @@ caproverOneClickApp:
             Wordpress is deployed and available as $$cap_appname-wordpress . 
 
             IMPORTANT: It will take up to 2 minutes for WordPress to be ready. Before that, you might see a 502 error page.
-    displayName: WordPress
-    isOfficial: true
+    displayName: WordPress Development
+    isOfficial: false 
     description: WordPress is a content management system based on PHP and MySQL that is usually used with the MySQL or MariaDB database
     documentation: Taken from https://docs.docker.com/compose/wordpress/. Port mapping removed from WP as it is no longer needed
