@@ -40,7 +40,7 @@ caproverOneClickApp:
           validRegex: /^(mysql|mariadb)$/
         - id: $$cap_wpdev_version
           label: WordPress development image version
-          defaultValue: '0.0.2'
+          defaultValue: '0.0.3'
           description: Check out the Docker pages for the valid tags https://hub.docker.com/repository/docker/dinhtungdu/wordpress-docker-development.
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_database_version
