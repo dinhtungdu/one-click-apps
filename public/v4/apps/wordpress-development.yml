@@ -15,7 +15,7 @@ services:
     $$cap_appname-wordpress:
         depends_on:
             - $$cap_appname-db
-        image: dinhtungdu/wordpress-docker-development:latest
+        image: dinhtungdu/wordpress-docker-development:$$cap_wpdev_version
         volumes:
             - $$cap_appname-wp-data:/var/www/html
         restart: always
@@ -38,6 +38,11 @@ caproverOneClickApp:
           defaultValue: mariadb
           description: You can either choose mariadb or mysql, you need to change the version according to which DB is selected. It is case sensitive.
           validRegex: /^(mysql|mariadb)$/
+        - id: $$cap_wpdev_version
+          label: WordPress development image version
+          defaultValue: '0.0.2'
+          description: Check out the Docker pages for the valid tags https://hub.docker.com/repository/docker/dinhtungdu/wordpress-docker-development.
+          validRegex: /^([^\s^\/])+$/
         - id: $$cap_database_version
           label: Database Version, default is MySQL
           defaultValue: '10.6'
